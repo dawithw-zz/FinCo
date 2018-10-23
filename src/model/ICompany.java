@@ -1,4 +1,4 @@
-package FinCo;
+package model;
 
 public interface ICompany extends ICustomer {
 

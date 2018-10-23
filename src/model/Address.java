@@ -1,4 +1,4 @@
-package FinCo;
+package model;
 
 public class Address {
 
