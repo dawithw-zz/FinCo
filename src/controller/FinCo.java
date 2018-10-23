@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,9 +12,33 @@ import model.Customer;
 import model.Transaction;
 
 public class FinCo {
+	
 	Map<Customer, List<Account>> accounts = new HashMap<>();
+	AccountFactory personalFactory = new PersonalAccountFactory();
+	AccountFactory companyFactory = new CompanyAccountFactory();
 	
 	public void addPersonalAccount(AccountProperties param) {
+		Customer customer = personalFactory
+									.createCustomer(
+											param.getClientName(), 
+											param.getClientEmail(), 
+											param.getStreetName(),
+											param.getCity(), 
+											param.getState(), 
+											param.getZip());
+		
+		Account account = personalFactory.createAccount(customer, Long.parseLong(param.getAccountNumber()));
+		List<Account> customerAccounts = accounts.get(customer);
+		
+		// no customer with given properties exist
+		if (customerAccounts == null) {
+			customerAccounts = new ArrayList<>();
+			customerAccounts.add(account);
+			accounts.put(customer, customerAccounts);
+		}
+		else {
+			customerAccounts.add(account);
+		}
 		
 	}
 	

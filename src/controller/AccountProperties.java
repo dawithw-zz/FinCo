@@ -9,6 +9,7 @@ public class AccountProperties {
 	private String zip;
 	private String accountType;
 	private String amountDeposit;
+	private String clientEmail;
 	
 	public AccountProperties() {
 		accountNumber = clientName = streetName = city = state = zip = accountType = amountDeposit = "";
@@ -61,6 +62,14 @@ public class AccountProperties {
 	}
 	public void setAmountDeposit(String amountDeposit) {
 		this.amountDeposit = amountDeposit;
+	}
+
+	public String getClientEmail() {
+		return clientEmail;
+	}
+
+	public void setClientEmail(String clientEmail) {
+		this.clientEmail = clientEmail;
 	}
 
 	
