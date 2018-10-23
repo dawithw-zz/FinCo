@@ -28,19 +28,23 @@ public class FinCo {
 	}
 	
 	public void deposit(String customerName, String accountNumber, String deposit) {
+		Transaction transaction = new Transaction("Deposit", Double.parseDouble(deposit), Date.valueOf(LocalDate.now()));
+		getAccount(customerName, accountNumber).addTransaction(transaction);
+	}
+	
+	public void withdraw(String customerName, String accountNumber, String withdrawal) {
+		Transaction transaction = new Transaction("Withdrawal", -(Double.parseDouble(withdrawal)), Date.valueOf(LocalDate.now()));
+		getAccount(customerName, accountNumber).addTransaction(transaction);
+	}
+	
+	private Account getAccount(String customerName, String accountNumber) {
 		Customer customer = accounts.keySet().stream()
 				.filter(c -> c.getName().equals(customerName))
 				.findFirst().get();
 		
-		accounts.get(customer).stream()
+		return accounts.get(customer).stream()
 			.filter(account -> account.accountNumber() == Long.parseLong(accountNumber))
-			.findFirst().get()
-			.addTransaction(new Transaction("Deposit", Double.parseDouble(deposit), Date.valueOf(LocalDate.now())));
+			.findFirst().get();
 	}
-	
-	public void withdraw(String customerName, String accountNumber, String withdrawal) {
-		
-	}
-	
 	
 }
