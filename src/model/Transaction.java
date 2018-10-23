@@ -7,7 +7,7 @@ public class Transaction implements ITransaction {
 	private double amount;
 	private Date date;
 	
-	Transaction(String description, double amount, Date date) {
+	public Transaction(String description, double amount, Date date) {
 		this.description = description;
 		this.amount = amount;
 		this.date = date;
