@@ -4,7 +4,7 @@ import model.Account;
 import model.Customer;
 
 public class AccountFactory {
-	public Account createAccount(Customer owner,  long accountNumber) {
+	public Account createAccount(Customer owner,  String accountNumber) {
 		return new Account(owner, accountNumber);
 	}
 }

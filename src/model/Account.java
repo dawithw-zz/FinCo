@@ -6,15 +6,15 @@ import java.util.List;
 public class Account extends AbstractAccount {
 	
 	List<Transaction> transactions = new ArrayList<>();
-	long accountNumber;
+	String accountNumber;
 	double currentBalance;
 	
-	public Account(Customer owner, long accountNumber) {
+	public Account(Customer owner, String accountNumber) {
 		addOwner(owner);
 		this.accountNumber = accountNumber;
 	}
 	
-	public long accountNumber() {
+	public String accountNumber() {
 		return accountNumber;
 	}
 	
