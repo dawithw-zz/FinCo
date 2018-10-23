@@ -1,13 +1,13 @@
 package FinCo;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Transaction implements ITransaction {
 	private String description;
 	private double amount;
-	private LocalDate date;
+	private Date date;
 	
-	Transaction(String description, double amount, LocalDate date) {
+	Transaction(String description, double amount, Date date) {
 		this.description = description;
 		this.amount = amount;
 		this.date = date;
@@ -21,7 +21,7 @@ public class Transaction implements ITransaction {
 		return amount;
 	}
 	
-	public LocalDate date() {
+	public Date date() {
 		return date;
 	}
 	
