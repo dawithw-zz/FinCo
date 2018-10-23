@@ -10,6 +10,12 @@ public class Customer implements ICustomer {
 	private Address address;
 	private List<Account> accounts = new ArrayList<>();
 	
+	public Customer(String name, String email, Address address) {
+		this.name = name;
+		this.email = email;
+		this.address = address;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -27,6 +33,7 @@ public class Customer implements ICustomer {
 	public Address getAddress() {
 		return address;
 	}
+
 	public void setAddress(String street, String city, String state, String zip) {
 		this.address = new Address(street, city, state, zip);
 	}
