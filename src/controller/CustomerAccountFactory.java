@@ -29,5 +29,6 @@ public class CustomerAccountFactory {
 	private void create(String name, String email, String street, String city, String state, String zip, long accountNumber) {
 		customer = customerFactory.createCustomer(name, email, street, city, state, zip);
 		account = accountFactory.createAccount(customer, accountNumber);
+		customer.addAccount(account);
 	}
 }
