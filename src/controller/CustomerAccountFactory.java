@@ -1,43 +1,51 @@
 package controller;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.ArrayList;
+
 import model.Account;
 import model.Customer;
-import model.ICustomer;
 
 /*
  * Simple factory to instantiate customer factory and account factory.
  */
 public class CustomerAccountFactory {
 
-	CustomerFactory customerFactory;
-	AccountFactory accountFactory;
-	Customer customer;
-	Account account;
+	List<Customer> customers = new ArrayList<>();
 	
-	public void CreatePersonAccount(String name, String email, String street, String city, String state, String zip, long accountNumber) {
-		customerFactory = new PersonFactory();
-		accountFactory = new AccountFactory();
-		create(name, email, street, city, state, zip, accountNumber);
+	public void CreatePersonalAccount(AccountParameters param) {
+		createCustomerAccount(param, PersonFactory.getInstance(), AccountFactory.getInstance());
 	}
 	
-	public void CreateCompanyAccount(String name, String email, String street, String city, String state, String zip, long accountNumber) {
-		customerFactory = new CompanyFactory();
-		accountFactory = new AccountFactory();
-		create(name, email, street, city, state, zip, accountNumber);
+	public void CreateCompanyAccount(AccountParameters param) {
+		createCustomerAccount(param, CompanyFactory.getInstance(), AccountFactory.getInstance());
 	}
 	
-	private void create(String name, String email, String street, String city, String state, String zip, long accountNumber) {
-		customer = customerFactory.createCustomer(name, email, street, city, state, zip);
-		account = accountFactory.createAccount(customer, accountNumber);
-		customer.addAccount(account);
+	public void createCustomerAccount(AccountParameters param, CustomerFactory cFactory, AccountFactory aFactory) {
+		Customer customer;
+		Optional<Customer> previousCustomer = findCustomer(param.getClientName(), param.getClientEmail());
+		if (previousCustomer.isPresent()) {
+			customer = previousCustomer.get();
+		} else {
+			customer = cFactory.createCustomer(param.getClientName(), 
+					   						   param.getClientEmail(), 
+					   						   param.getStreetName(),
+					   						   param.getCity(), 
+					   						   param.getState(), 
+					   						   param.getZip());
+			customers.add(customer);
+		}
+		Account account = aFactory.createAccount(customer, param.getAccountNumber());
+		customer.addAccount(account); 
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public Account getAccount() {
-		return account;
+	
+	private Optional<Customer> findCustomer(String customerName, String customerEmail) {
+		return customers.stream().filter(customer -> customer.getName().equals(customerName))
+								 .filter(customer -> customer.getEmail().equals(customerEmail))
+								 .findAny();
+								 
 	}
 	
 	
