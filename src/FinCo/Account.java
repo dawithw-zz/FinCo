@@ -34,9 +34,4 @@ public class Account extends AbstractAccount {
 		currentBalance *= interest;
 	}
 
-	@Override
-	public void notifyCustomer() {
-		// TODO Auto-generated method stub
-	}
-
 }
