@@ -1,10 +1,11 @@
 package FinCo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Account extends AbstractAccount {
 	
-	ArrayList<Transaction> transactions = new ArrayList<>();
+	List<Transaction> transactions = new ArrayList<>();
 	long accountNumber;
 	double currentBalance;
 	
