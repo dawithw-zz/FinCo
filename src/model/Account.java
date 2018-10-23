@@ -9,7 +9,7 @@ public class Account extends AbstractAccount {
 	long accountNumber;
 	double currentBalance;
 	
-	Account(Customer owner, long accountNumber) {
+	public Account(Customer owner, long accountNumber) {
 		addOwner(owner);
 		this.accountNumber = accountNumber;
 	}

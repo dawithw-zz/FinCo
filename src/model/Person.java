@@ -6,9 +6,9 @@ public class Person extends Customer implements IPerson {
 
 	private Date birthDate;
 
-	public Person(String name, String email, Address address, Date birthDate) {
+	public Person(String name, String email, Address address) {
 		super(name, email, address);
-		this.birthDate = birthDate;
+		//this.birthDate = birthDate;
 	}
 	
 	public Date getBirthDate() {
