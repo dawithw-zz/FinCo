@@ -1,6 +1,6 @@
 package controller;
 
-public class UserInput {
+public class AccountParameters {
 	private String accountNumber;
 	private String clientName;
 	private String streetName;
@@ -11,7 +11,7 @@ public class UserInput {
 	private String amountDeposit;
 	private String clientEmail;
 	
-	public UserInput() {
+	public AccountParameters() {
 		accountNumber = clientName = streetName = city = state = zip = accountType = amountDeposit = "";
 	}
 	
