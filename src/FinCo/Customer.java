@@ -1,11 +1,14 @@
 package FinCo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer implements ICustomer {
 
 	private String name;
 	private String email;
 	private Address address;
-	private List<Account> accounts;
+	private List<Account> accounts = new ArrayList<>();
 	
 	public String getName() {
 		return name;
