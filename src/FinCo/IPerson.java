@@ -1,5 +1,5 @@
 package FinCo;
 
-public interface IPerson {
+public interface IPerson extends ICustomer {
 
 }
