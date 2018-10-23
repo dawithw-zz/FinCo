@@ -31,4 +31,14 @@ public class CustomerAccountFactory {
 		account = accountFactory.createAccount(customer, accountNumber);
 		customer.addAccount(account);
 	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+	
+	
 }
