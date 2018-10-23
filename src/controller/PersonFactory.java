@@ -6,16 +6,10 @@ import model.Company;
 import model.Customer;
 import model.Person;
 
-public class PersonalAccountFactory implements AccountFactory {
+public class PersonFactory implements CustomerFactory {
 
 	@Override
 	public Customer createCustomer(String name, String email, String street, String city, String state, String zip) {
 		return new Person(name, email, new Address(street, city, state, zip));
 	}
-
-	@Override
-	public Account createAccount(Customer owner, long accountNumber) {
-		return new Account(owner, accountNumber);
-	}
-
 }

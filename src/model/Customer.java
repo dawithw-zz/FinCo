@@ -50,5 +50,13 @@ public class Customer implements ICustomer {
 		System.out.println("Email sent to: " + this.name + " - " + this.email);
 	}
 	
-	
+	//Is Customer name and email is equal to existing customer?
+	@Override
+	public boolean equals(Object customer) {
+        if (customer == null) return false;
+        if (!(customer instanceof Customer)) return false;
+        Customer c = (Customer)customer;
+        if(this.name.equals(c.name) && this.email.equals(c.email)) return true;
+        return false;
+    }
 }
