@@ -1,6 +1,6 @@
 package controller;
 
-public class AccountProperties {
+public class UserInput {
 	private String accountNumber;
 	private String clientName;
 	private String streetName;
@@ -11,7 +11,7 @@ public class AccountProperties {
 	private String amountDeposit;
 	private String clientEmail;
 	
-	public AccountProperties() {
+	public UserInput() {
 		accountNumber = clientName = streetName = city = state = zip = accountType = amountDeposit = "";
 	}
 	
@@ -70,8 +70,5 @@ public class AccountProperties {
 
 	public void setClientEmail(String clientEmail) {
 		this.clientEmail = clientEmail;
-	}
-
-	
-	
+	}	
 }
