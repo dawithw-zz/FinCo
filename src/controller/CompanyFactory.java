@@ -5,7 +5,8 @@ import model.Company;
 import model.Customer;
 
 public class CompanyFactory implements CustomerFactory {
-	private CompanyFactory instance = new CompanyFactory();
+	
+	private static CompanyFactory instance = new CompanyFactory();
 	
 	private CompanyFactory() {
 		// should not be invoked except by instance
@@ -16,7 +17,7 @@ public class CompanyFactory implements CustomerFactory {
 		return new Company(name, email, new Address(street, city, state, zip));
 	}
 	
-	public CompanyFactory getInstance() {
+	public static CompanyFactory getInstance() {
 		return instance;
 	}
 
