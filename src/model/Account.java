@@ -34,4 +34,10 @@ public class Account extends AbstractAccount {
 		return "Account = accountNumber: " + accountNumber + ", currentBalance: " + currentBalance;
 	}
 
+	@Override
+	public void addInterest() {
+	 this.currentBalance += this.currentBalance * this.getInterest();
+		
+	}
+
 }
