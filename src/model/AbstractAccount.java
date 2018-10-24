@@ -3,7 +3,7 @@ package model;
 public abstract class AbstractAccount implements IAccount {
 	
 	private ICustomer owner;
-	protected double interest = 0.01;
+	protected double interest;
 	
 	// add observer
 	@Override
