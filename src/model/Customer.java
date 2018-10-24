@@ -46,6 +46,10 @@ public class Customer implements ICustomer {
 		this.accounts.remove(account);
 	}
 	
+	public List<Account> accounts() {
+		return accounts;
+	}
+	
 	public void sendEmail() {
 		System.out.println("Email sent to: " + this.name + " - " + this.email);
 	}
