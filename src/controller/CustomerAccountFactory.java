@@ -23,11 +23,11 @@ public class CustomerAccountFactory {
 		// utility class
 	}
 	
-	public static void CreatePersonalAccount(AccountParameters param) {
+	public static void createPersonalAccount(AccountParameters param) {
 		createCustomerAccount(param, PersonFactory.getInstance(), AccountFactory.getInstance());
 	}
 	
-	public static void CreateCompanyAccount(AccountParameters param) {
+	public static void createCompanyAccount(AccountParameters param) {
 		createCustomerAccount(param, CompanyFactory.getInstance(), AccountFactory.getInstance());
 	}
 	
