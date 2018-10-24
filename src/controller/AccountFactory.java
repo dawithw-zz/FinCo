@@ -6,7 +6,7 @@ import model.Customer;
 public class AccountFactory {
 	private static AccountFactory instance = new AccountFactory();
 	
-	private AccountFactory() {
+	protected AccountFactory() {
 		// should not be invoked except by instance
 	}
 	
