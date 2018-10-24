@@ -1,5 +1,7 @@
 package view;
 
+import java.util.Date;
+
 public class AccountParameters {
 	private String accountNumber;
 	private String customerName;
@@ -8,11 +10,11 @@ public class AccountParameters {
 	private String state;
 	private String zip;
 	private String accountType;
-	private String amountDeposit;
-	private String clientEmail;
+	private String customerEmail;
+	private Date birthDate;
 	
 	public AccountParameters() {
-		accountNumber = customerName = streetName = city = state = zip = accountType = amountDeposit = "";
+		accountNumber = customerName = streetName = city = state = zip = accountType = customerEmail = "";
 	}
 	
 	public String getAccountNumber() {
@@ -24,8 +26,8 @@ public class AccountParameters {
 	public String getCustomerName() {
 		return customerName;
 	}
-	public void setCustomerName(String clientName) {
-		this.customerName = clientName;
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 	public String getStreetName() {
 		return streetName;
@@ -57,18 +59,18 @@ public class AccountParameters {
 	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
-	public String getAmountDeposit() {
-		return amountDeposit;
+	public Date getbirthDate() {
+		return birthDate;
 	}
-	public void setAmountDeposit(String amountDeposit) {
-		this.amountDeposit = amountDeposit;
-	}
-
-	public String getClientEmail() {
-		return clientEmail;
+	public void setbirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 
-	public void setClientEmail(String clientEmail) {
-		this.clientEmail = clientEmail;
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
 	}	
 }

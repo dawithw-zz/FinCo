@@ -5,21 +5,22 @@ import java.util.List;
 
 public class Account extends AbstractAccount {
 	
-	List<Transaction> transactions = new ArrayList<>();
+	List<ITransaction> transactions = new ArrayList<>();
 	String accountNumber;
 	double currentBalance;
 	
-	public Account(Customer owner, String accountNumber) {
+	public Account(ICustomer owner, String accountNumber) {
 		addOwner(owner);
 		this.accountNumber = accountNumber;
 	}
 	
+	@Override
 	public String accountNumber() {
 		return accountNumber;
 	}
 	
 	@Override
-	public void addTransaction(Transaction transaction) {
+	public void addTransaction(ITransaction transaction) {
 		transactions.add(transaction);
 		currentBalance += transaction.amount();
 	}

@@ -13,14 +13,17 @@ public class Transaction implements ITransaction {
 		this.date = date;
 	}
 	
+	@Override
 	public String description() {
 		return description;
 	}
 	
+	@Override
 	public double amount() {
 		return amount;
 	}
 	
+	@Override
 	public Date date() {
 		return date;
 	}

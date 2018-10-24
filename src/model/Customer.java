@@ -8,7 +8,7 @@ public class Customer implements ICustomer {
 	private String name;
 	private String email;
 	private Address address;
-	private List<Account> accounts = new ArrayList<>();
+	private List<IAccount> accounts = new ArrayList<>();
 	
 	public Customer(String name, String email, Address address) {
 		this.name = name;
@@ -16,40 +16,52 @@ public class Customer implements ICustomer {
 		this.address = address;
 	}
 	
+	@Override
 	public String getName() {
 		return name;
 	}
+	
+	@Override
 	public void setName(String name) {
 		this.name = name;
 	}
 	
+	@Override
 	public String getEmail() {
 		return email;
 	}
+	
+	@Override
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	
+	@Override
 	public Address getAddress() {
 		return address;
 	}
 
+	@Override
 	public void setAddress(String street, String city, String state, String zip) {
 		this.address = new Address(street, city, state, zip);
 	}
 	
-	public void addAccount(Account account) {
+	@Override
+	public void addAccount(IAccount account) {
 		this.accounts.add(account);
 	}
 	
-	public void removeAccount(Account account) {
+	@Override
+	public void removeAccount(IAccount account) {
 		this.accounts.remove(account);
 	}
 	
-	public List<Account> accounts() {
+	@Override
+	public List<IAccount> accounts() {
 		return accounts;
 	}
 	
+	@Override
 	public void sendEmail() {
 		System.out.println("Email sent to: " + this.name + " - " + this.email);
 	}

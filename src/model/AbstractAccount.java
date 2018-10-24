@@ -1,30 +1,31 @@
 package model;
 
-public abstract class AbstractAccount {
+public abstract class AbstractAccount implements IAccount {
 	
-	private Customer owner;
+	private ICustomer owner;
 	protected double interest = 0.01;
 	
 	// add observer
-	public void addOwner(Customer customer) {
+	@Override
+	public void addOwner(ICustomer customer) {
 		owner = customer;
 	}
 	
 	// notify observer
+	@Override
 	public void notifyCustomer() {
 		owner.sendEmail();
 	}
 	
-	
+	@Override
 	public double getInterest() {
 		return interest;
 	}
 
+	@Override
 	public void setInterest(double interest) {
 		this.interest = interest;
 	}
 
-	public abstract void addInterest();
-	public abstract void addTransaction(Transaction transaction);
-	public abstract double getBalance();
+	
 }
