@@ -86,4 +86,17 @@ public class CustomerAccountFactory {
 		}
 		
 	}
+	
+	public static String generateReport() {
+		String report = "";
+		for(Customer c : customers) {
+			report = "Name = " + c.getName();
+			report += "Address = " + c.getAddress();
+			report += "Account = " + c.accounts();
+			report += "Total Balance = " + c.accounts().stream().mapToDouble(x-> x.getBalance()).sum();
+			
+		}
+		return report;
+	}
+	
 }
