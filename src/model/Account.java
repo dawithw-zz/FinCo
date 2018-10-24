@@ -34,4 +34,9 @@ public class Account extends AbstractAccount {
 		currentBalance *= interest;
 	}
 
+	@Override
+	public String toString() {
+		return "Account = accountNumber: " + accountNumber + ", currentBalance: " + currentBalance;
+	}
+
 }
