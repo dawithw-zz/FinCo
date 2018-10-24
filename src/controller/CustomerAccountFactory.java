@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import model.Account;
 import model.Customer;
 import model.Transaction;
+import view.AccountParameters;
 
 /*
  * A utility class containing the business logic of the application, and separates the main from the implementation details

@@ -1,5 +1,7 @@
 package controller;
 
+import view.AccountParameters;
+
 public class FinCo {
 	
 	public void addPersonalAccount(AccountParameters param) {
