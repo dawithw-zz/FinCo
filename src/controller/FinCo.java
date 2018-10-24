@@ -28,11 +28,11 @@ public class FinCo {
 	
 	public static void createCustomerAccount(AccountParameters param, CustomerFactory cFactory, AccountFactory aFactory) {
 		Customer customer;
-		Optional<Customer> previousCustomer = findCustomer(param.getClientName(), param.getClientEmail());
+		Optional<Customer> previousCustomer = findCustomer(param.getCustomerName(), param.getClientEmail());
 		if (previousCustomer.isPresent()) {
 			customer = previousCustomer.get();
 		} else {
-			customer = cFactory.createCustomer(param.getClientName(), 
+			customer = cFactory.createCustomer(param.getCustomerName(), 
 					   						   param.getClientEmail(), 
 					   						   param.getStreetName(),
 					   						   param.getCity(), 

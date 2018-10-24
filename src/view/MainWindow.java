@@ -14,7 +14,9 @@ public class MainWindow extends javax.swing.JFrame
     /****
      * init variables in the object
      ****/
-    String accountnr, clientName,street,city,zip,state,accountType,clientType,amountDeposit;
+    String amountDeposit;
+    AccountParameters param = new AccountParameters();
+    
     boolean newaccount;
     private DefaultTableModel model;
     private JTable JTable1;
@@ -26,7 +28,7 @@ public class MainWindow extends javax.swing.JFrame
 	{
 		myframe = this;
 
-		setTitle("Bank Application.");
+		setTitle("FinCo");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0,0));
 		setSize(575,310);
@@ -46,7 +48,6 @@ public class MainWindow extends javax.swing.JFrame
         model.addColumn("Name");
         model.addColumn("City");
         model.addColumn("P/C");
-        model.addColumn("Ch/S");
         model.addColumn("Amount");
         rowdata = new Object[8];
         newaccount=false;
@@ -208,12 +209,11 @@ public class MainWindow extends javax.swing.JFrame
 
 		if (newaccount){
             // add row to table
-            rowdata[0] = accountnr;
-            rowdata[1] = clientName;
-            rowdata[2] = city;
+            rowdata[0] = param.getAccountNumber();
+            rowdata[1] = param.getCustomerName();
+            rowdata[2] = param.getCity();
             rowdata[3] = "P";
-            rowdata[4] = accountType;
-            rowdata[5] = "0";
+            rowdata[4] = "0";
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
             newaccount=false;
@@ -237,12 +237,11 @@ public class MainWindow extends javax.swing.JFrame
 		
 		if (newaccount){
             // add row to table
-            rowdata[0] = accountnr;
-            rowdata[1] = clientName;
-            rowdata[2] = city;
+            rowdata[0] = param.getAccountNumber();
+            rowdata[1] = param.getCustomerName();
+            rowdata[2] = param.getCity();
             rowdata[3] = "C";
-            rowdata[4] = accountType;
-            rowdata[5] = "0";
+            rowdata[4] = "0";
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
             newaccount=false;
@@ -264,10 +263,10 @@ public class MainWindow extends javax.swing.JFrame
     		
 		    // compute new amount
             long deposit = Long.parseLong(amountDeposit);
-            String samount = (String)model.getValueAt(selection, 5);
+            String samount = (String)model.getValueAt(selection, 4);
             long currentamount = Long.parseLong(samount);
 		    long newamount=currentamount+deposit;
-		    model.setValueAt(String.valueOf(newamount),selection, 5);
+		    model.setValueAt(String.valueOf(newamount),selection, 4);
 		}
 		
 		
@@ -287,10 +286,10 @@ public class MainWindow extends javax.swing.JFrame
     		
 		    // compute new amount
             long deposit = Long.parseLong(amountDeposit);
-            String samount = (String)model.getValueAt(selection, 5);
+            String samount = (String)model.getValueAt(selection, 4);
             long currentamount = Long.parseLong(samount);
 		    long newamount=currentamount-deposit;
-		    model.setValueAt(String.valueOf(newamount),selection, 5);
+		    model.setValueAt(String.valueOf(newamount),selection, 4);
 		    if (newamount <0){
 		       JOptionPane.showMessageDialog(JButton_Withdraw, " Account "+accnr+" : balance is negative: $"+String.valueOf(newamount)+" !","Warning: negative balance",JOptionPane.WARNING_MESSAGE);
 		    }

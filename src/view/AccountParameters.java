@@ -2,7 +2,7 @@ package view;
 
 public class AccountParameters {
 	private String accountNumber;
-	private String clientName;
+	private String customerName;
 	private String streetName;
 	private String city;
 	private String state;
@@ -12,7 +12,7 @@ public class AccountParameters {
 	private String clientEmail;
 	
 	public AccountParameters() {
-		accountNumber = clientName = streetName = city = state = zip = accountType = amountDeposit = "";
+		accountNumber = customerName = streetName = city = state = zip = accountType = amountDeposit = "";
 	}
 	
 	public String getAccountNumber() {
@@ -21,11 +21,11 @@ public class AccountParameters {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public String getClientName() {
-		return clientName;
+	public String getCustomerName() {
+		return customerName;
 	}
-	public void setClientName(String clientName) {
-		this.clientName = clientName;
+	public void setCustomerName(String clientName) {
+		this.customerName = clientName;
 	}
 	public String getStreetName() {
 		return streetName;

@@ -2,6 +2,8 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 
+import controller.FinCo;
+
 public class DepositDialog extends javax.swing.JDialog
 {
     
@@ -83,6 +85,7 @@ public class DepositDialog extends javax.swing.JDialog
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
         parentframe.amountDeposit=JTextField_Deposit.getText();
+        FinCo.deposit(accnr, Double.parseDouble(parentframe.amountDeposit));
         dispose();
 	}
 

@@ -6,6 +6,8 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 
+import controller.FinCo;
+
 public class AddPersonalAccountDialog extends javax.swing.JDialog
 {
     private MainWindow parentframe;
@@ -123,14 +125,16 @@ public class AddPersonalAccountDialog extends javax.swing.JDialog
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-       parentframe.accountnr=JTextField_ACNR.getText();
-       parentframe.clientName=JTextField_NAME.getText();
-       parentframe.street=JTextField_STR.getText();
-       parentframe.city=JTextField_CT.getText();
-       parentframe.zip=JTextField_ZIP.getText();
-       parentframe.state=JTextField_ST.getText();
-	   parentframe.newaccount=true;
-       dispose();
+		parentframe.param.setAccountNumber(JTextField_ACNR.getText());
+		parentframe.param.setCustomerName(JTextField_NAME.getText());
+		parentframe.param.setStreetName(JTextField_STR.getText());
+		parentframe.param.setCity(JTextField_CT.getText());
+		parentframe.param.setZip(JTextField_ZIP.getText());
+		parentframe.param.setState(JTextField_ST.getText());
+		parentframe.param.setClientEmail(JTextField_EM.getText());
+		parentframe.newaccount=true;
+		FinCo.createPersonalAccount(parentframe.param);
+		dispose();
 	}
 
 	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)

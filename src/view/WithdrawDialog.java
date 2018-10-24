@@ -2,6 +2,8 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 
+import controller.FinCo;
+
 
 
 public class WithdrawDialog extends javax.swing.JDialog
@@ -85,6 +87,7 @@ public class WithdrawDialog extends javax.swing.JDialog
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
         parentframe.amountDeposit=JTextField_AMT.getText();
+        FinCo.withdraw(accnr, Double.parseDouble(parentframe.amountDeposit));
 		dispose();
 	}
 

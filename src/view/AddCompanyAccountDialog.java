@@ -2,6 +2,8 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 
+import controller.FinCo;
+
 
 
 public class AddCompanyAccountDialog extends javax.swing.JDialog
@@ -24,14 +26,7 @@ public class AddCompanyAccountDialog extends javax.swing.JDialog
 		getContentPane().setLayout(null);
 		setSize(298,339);
 		setVisible(false);
-		JRadioButton_Chk.setText("Checkings");
-		JRadioButton_Chk.setActionCommand("Checkings");
-		getContentPane().add(JRadioButton_Chk);
-		JRadioButton_Chk.setBounds(36,12,84,24);
-		JRadioButton_Sav.setText("Savings");
-		JRadioButton_Sav.setActionCommand("Savings");
-		getContentPane().add(JRadioButton_Sav);
-		JRadioButton_Sav.setBounds(36,36,84,24);
+
 		JLabel1.setText("Name");
 		getContentPane().add(JLabel1);
 		JLabel1.setForeground(java.awt.Color.black);
@@ -52,14 +47,10 @@ public class AddCompanyAccountDialog extends javax.swing.JDialog
 		getContentPane().add(JLabel5);
 		JLabel5.setForeground(java.awt.Color.black);
 		JLabel5.setBounds(12,192,48,24);
-		JLabel6.setText("No of employees");
+		JLabel6.setText("Email");
 		getContentPane().add(JLabel6);
 		JLabel6.setForeground(java.awt.Color.black);
 		JLabel6.setBounds(12,216,96,24);
-		JLabel7.setText("Email");
-		getContentPane().add(JLabel7);
-		JLabel7.setForeground(java.awt.Color.black);
-		JLabel7.setBounds(12,240,48,24);
 		getContentPane().add(JTextField_NAME);
 		JTextField_NAME.setBounds(120,96,156,20);
 		getContentPane().add(JTextField_CT);
@@ -70,10 +61,8 @@ public class AddCompanyAccountDialog extends javax.swing.JDialog
 		JTextField_STR.setBounds(120,120,156,20);
 		getContentPane().add(JTextField_ZIP);
 		JTextField_ZIP.setBounds(120,192,156,20);
-		getContentPane().add(JTextField_NoOfEmp);
-		JTextField_NoOfEmp.setBounds(120,216,156,20);
 		getContentPane().add(JTextField_EM);
-		JTextField_EM.setBounds(120,240,156,20);
+		JTextField_EM.setBounds(120,216,156,20);
 		JButton_OK.setText("OK");
 		JButton_OK.setActionCommand("OK");
 		getContentPane().add(JButton_OK);
@@ -99,8 +88,6 @@ public class AddCompanyAccountDialog extends javax.swing.JDialog
 
 
 	//{{DECLARE_CONTROLS
-	javax.swing.JRadioButton JRadioButton_Chk = new javax.swing.JRadioButton();
-	javax.swing.JRadioButton JRadioButton_Sav = new javax.swing.JRadioButton();
 	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
 	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
 	javax.swing.JLabel JLabel3 = new javax.swing.JLabel();
@@ -136,18 +123,16 @@ public class AddCompanyAccountDialog extends javax.swing.JDialog
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-       parentframe.accountnr=JTextField_ACNR.getText();
-       parentframe.clientName=JTextField_NAME.getText();
-       parentframe.street=JTextField_STR.getText();
-       parentframe.city=JTextField_CT.getText();
-       parentframe.zip=JTextField_ZIP.getText();
-       parentframe.state=JTextField_ST.getText();
-       if (JRadioButton_Chk.isSelected())
-           parentframe.accountType="Ch";
-           else
-           parentframe.accountType="S";
-	   parentframe.newaccount=true;
-	   dispose();
+		parentframe.param.setAccountNumber(JTextField_ACNR.getText());
+		parentframe.param.setCustomerName(JTextField_NAME.getText());
+		parentframe.param.setStreetName(JTextField_STR.getText());
+		parentframe.param.setCity(JTextField_CT.getText());
+		parentframe.param.setZip(JTextField_ZIP.getText());
+		parentframe.param.setState(JTextField_ST.getText());
+		parentframe.param.setClientEmail(JTextField_EM.getText());
+		parentframe.newaccount=true;
+		FinCo.createCompanyAccount(parentframe.param);
+		dispose();
 			 
 	}
 
