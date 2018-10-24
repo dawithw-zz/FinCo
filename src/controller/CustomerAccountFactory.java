@@ -87,6 +87,14 @@ public class CustomerAccountFactory {
 		
 	}
 	
+	public static void addInterest() {
+		for(Customer c : customers) {
+			for(Account a: c.accounts()) {
+				a.addInterest();
+			}
+		}
+	}
+	
 	public static String generateReport() {
 		String report = "";
 		for(Customer c : customers) {
