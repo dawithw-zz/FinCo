@@ -29,7 +29,7 @@ public class BankAddPersonalAccountDialog extends AddPersonalAccountDialog{
 		parentframe.param.setCity(JTextField_CT.getText());
 		parentframe.param.setZip(JTextField_ZIP.getText());
 		parentframe.param.setState(JTextField_ST.getText());
-		parentframe.param.setClientEmail(JTextField_EM.getText());
+		parentframe.param.setCustomerEmail(JTextField_EM.getText());
 		parentframe.newaccount=true;
 		dispose();
 		
