@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.table.DefaultTableModel;
+
+import controller.FinCo;
+
 import javax.swing.*;
 
 /**
@@ -269,7 +272,7 @@ public class MainWindow extends javax.swing.JFrame
 		    model.setValueAt(String.valueOf(newamount),selection, 4);
 		}
 		
-		
+		System.out.println(FinCo.generateReport());
 	}
 
 	void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event)
