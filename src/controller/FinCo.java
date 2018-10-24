@@ -12,17 +12,11 @@ import model.Customer;
 import model.Transaction;
 import view.AccountParameters;
 
-/*
- * A utility class containing the business logic of the application, and separates the main from the implementation details
- * 
- */
-public class CustomerAccountFactory {
+
+public class FinCo {
 	
 	private static List<Customer> customers = new ArrayList<>();
-	
-	private CustomerAccountFactory() {
-		// utility class
-	}
+
 	
 	public static void createPersonalAccount(AccountParameters param) {
 		createCustomerAccount(param, PersonFactory.getInstance(), AccountFactory.getInstance());
