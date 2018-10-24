@@ -26,7 +26,7 @@ public class FinCo {
 		createCustomerAccount(param, CompanyFactory.getInstance(), AccountFactory.getInstance());
 	}
 	
-	public static void createCustomerAccount(AccountParameters param, CustomerFactory cFactory, AccountFactory aFactory) {
+	protected static void createCustomerAccount(AccountParameters param, CustomerFactory cFactory, AccountFactory aFactory) {
 		Customer customer;
 		Optional<Customer> previousCustomer = findCustomer(param.getCustomerName(), param.getClientEmail());
 		if (previousCustomer.isPresent()) {
