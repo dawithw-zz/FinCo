@@ -2,14 +2,14 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 
-public class JDialog_Deposit extends javax.swing.JDialog
+public class DepositDialog extends javax.swing.JDialog
 {
     
 
-    private BankFrm parentframe;
+    private MainWindow parentframe;
     private String accnr;
     
-	public JDialog_Deposit(BankFrm parent, String aaccnr)
+	public DepositDialog(MainWindow parent, String aaccnr)
 	{
 		super(parent);
 		parentframe=parent;

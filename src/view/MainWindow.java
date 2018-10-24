@@ -9,7 +9,7 @@ import javax.swing.*;
 /**
  * A basic JFC based application.
  **/
-public class BankFrm extends javax.swing.JFrame
+public class MainWindow extends javax.swing.JFrame
 {
     /****
      * init variables in the object
@@ -19,10 +19,10 @@ public class BankFrm extends javax.swing.JFrame
     private DefaultTableModel model;
     private JTable JTable1;
     private JScrollPane JScrollPane1;
-    BankFrm myframe;
+    MainWindow myframe;
     private Object rowdata[];
     
-	public BankFrm()
+	public MainWindow()
 	{
 		myframe = this;
 
@@ -114,7 +114,7 @@ public class BankFrm extends javax.swing.JFrame
 		    }
 		    
 			//Create a new instance of our application's frame, and make it visible.
-			(new BankFrm()).setVisible(true);
+			(new MainWindow()).setVisible(true);
 		} 
 		catch (Throwable t) {
 			t.printStackTrace();
@@ -147,7 +147,7 @@ public class BankFrm extends javax.swing.JFrame
 		public void windowClosing(java.awt.event.WindowEvent event)
 		{
 			Object object = event.getSource();
-			if (object == BankFrm.this)
+			if (object == MainWindow.this)
 				BankFrm_windowClosing(event);
 		}
 	}
@@ -202,7 +202,7 @@ public class BankFrm extends javax.swing.JFrame
 		 set the boundaries and show it 
 		*/
 		
-		JDialog_AddPAcc pac = new JDialog_AddPAcc(myframe);
+		AddPersonalAccountDialog pac = new AddPersonalAccountDialog(myframe);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
@@ -231,7 +231,7 @@ public class BankFrm extends javax.swing.JFrame
 		 show it 
 		*/
 		
-		JDialog_AddCompAcc pac = new JDialog_AddCompAcc(myframe);
+		AddCompanyAccountDialog pac = new AddCompanyAccountDialog(myframe);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 		
@@ -258,7 +258,7 @@ public class BankFrm extends javax.swing.JFrame
             String accnr = (String)model.getValueAt(selection, 0);
     	    
 		    //Show the dialog for adding deposit amount for the current mane
-		    JDialog_Deposit dep = new JDialog_Deposit(myframe,accnr);
+		    DepositDialog dep = new DepositDialog(myframe,accnr);
 		    dep.setBounds(430, 15, 275, 140);
 		    dep.show();
     		
@@ -281,7 +281,7 @@ public class BankFrm extends javax.swing.JFrame
             String accnr = (String)model.getValueAt(selection, 0);
 
 		    //Show the dialog for adding withdraw amount for the current mane
-		    JDialog_Withdraw wd = new JDialog_Withdraw(myframe,accnr);
+		    WithdrawDialog wd = new WithdrawDialog(myframe,accnr);
 		    wd.setBounds(430, 15, 275, 140);
 		    wd.show();
     		
