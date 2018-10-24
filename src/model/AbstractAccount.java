@@ -17,6 +17,4 @@ public abstract class AbstractAccount {
 	
 	public abstract void addTransaction(Transaction transaction);
 	public abstract double getBalance();
-	public abstract void addInterest();
-	
 }

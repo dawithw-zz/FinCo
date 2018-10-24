@@ -4,13 +4,13 @@ import javax.swing.*;
 
 
 
-public class JDialog_Withdraw extends javax.swing.JDialog
+public class WithdrawDialog extends javax.swing.JDialog
 {
    
-    private BankFrm parentframe;
+    private MainWindow parentframe;
     private String accnr;
 
-	public JDialog_Withdraw(BankFrm parent, String aaccnr)
+	public WithdrawDialog(MainWindow parent, String aaccnr)
 	{
 		super(parent);
 		parentframe=parent;
