@@ -305,5 +305,5 @@ public class MainWindow extends javax.swing.JFrame
 	{
 		  JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts","Add interest to all accounts",JOptionPane.WARNING_MESSAGE);
 	    
-	}
+	} 
 }
