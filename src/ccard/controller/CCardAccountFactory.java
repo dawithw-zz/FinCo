@@ -1,5 +1,7 @@
 package ccard.controller;
 
+import java.util.Date;
+
 import ccard.model.Bronze;
 import ccard.model.Gold;
 import ccard.model.Silver;
@@ -19,15 +21,15 @@ private static CCardAccountFactory instance = new CCardAccountFactory();
 		return instance;
 	}
 	
-	public IAccount createGoldAccount(ICustomer owner,  String accountNumber) {
-		return new Gold(owner, accountNumber);
+	public IAccount createGoldAccount(ICustomer owner,  String accountNumber, Date expiryDate) {
+		return new Gold(owner, accountNumber, expiryDate);
 	}
 	
-	public IAccount createSilverAccount(ICustomer owner, String accountNumber) {
-		return new Silver(owner, accountNumber);
+	public IAccount createSilverAccount(ICustomer owner, String accountNumber, Date expiryDate) {
+		return new Silver(owner, accountNumber, expiryDate);
 	}
 	
-	public IAccount createBronzeAccount(ICustomer owner, String accountNumber) {
-		return new Bronze(owner, accountNumber);
+	public IAccount createBronzeAccount(ICustomer owner, String accountNumber, Date expiryDate) {
+		return new Bronze(owner, accountNumber, expiryDate);
 	}
 }

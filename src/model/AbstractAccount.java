@@ -43,6 +43,11 @@ public abstract class AbstractAccount implements IAccount {
 		transactions.add(transaction);
 		currentBalance += transaction.amount();
 	}
+	
+	@Override
+	public List<ITransaction> getTransactions(){
+		return transactions;
+	}
 
 	@Override
 	public double getBalance() {

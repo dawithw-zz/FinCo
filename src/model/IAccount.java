@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public interface IAccount {
 
 	public void addOwner(ICustomer customer);
@@ -10,4 +12,5 @@ public interface IAccount {
 	public void addTransaction(ITransaction transaction);
 	public double getBalance();
 	public String accountNumber();
+	public List<ITransaction> getTransactions();
 }
