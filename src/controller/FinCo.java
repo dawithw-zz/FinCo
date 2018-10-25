@@ -7,11 +7,8 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import model.Account;
-import model.Customer;
 import model.IAccount;
 import model.ICustomer;
-import model.ITransaction;
 import model.Transaction;
 import view.AccountParameters;
 
