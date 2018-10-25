@@ -88,24 +88,24 @@ public class AddCompanyAccountDialog extends javax.swing.JDialog
 
 
 	//{{DECLARE_CONTROLS
-	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel3 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel4 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel5 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel6 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel7 = new javax.swing.JLabel();
-	javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_CT = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_ST = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_STR = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_ZIP = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_NoOfEmp = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_EM = new javax.swing.JTextField();
-	javax.swing.JButton JButton_OK = new javax.swing.JButton();
-	javax.swing.JButton JButton_Calcel = new javax.swing.JButton();
-	javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
-	javax.swing.JTextField JTextField_ACNR = new javax.swing.JTextField();
+	public javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel3 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel4 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel5 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel6 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel7 = new javax.swing.JLabel();
+	public javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_CT = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_ST = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_STR = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_ZIP = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_NoOfEmp = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_EM = new javax.swing.JTextField();
+	public javax.swing.JButton JButton_OK = new javax.swing.JButton();
+	public javax.swing.JButton JButton_Calcel = new javax.swing.JButton();
+	public javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
+	public javax.swing.JTextField JTextField_ACNR = new javax.swing.JTextField();
 	//}}
 
 
@@ -130,7 +130,7 @@ public class AddCompanyAccountDialog extends javax.swing.JDialog
 		parentframe.param.setZip(JTextField_ZIP.getText());
 		parentframe.param.setState(JTextField_ST.getText());
 		parentframe.param.setCustomerEmail(JTextField_EM.getText());
-		parentframe.newaccount=true;
+		parentframe.proceedFromDialog=true;
 		FinCo.createCompanyAccount(parentframe.param);
 		dispose();
 			 

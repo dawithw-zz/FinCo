@@ -17,14 +17,14 @@ public class MainWindow extends javax.swing.JFrame
     /****
      * init variables in the object
      ****/
-    String amountDeposit;
-    AccountParameters param = new AccountParameters();
+    public MainWindow myframe;
+    public double amountDeposit;
+    public boolean proceedFromDialog;
+    public AccountParameters param = new AccountParameters();
     
-    boolean newaccount;
     private DefaultTableModel model;
     private JTable JTable1;
     private JScrollPane JScrollPane1;
-    MainWindow myframe;
     private Object rowdata[];
     
 	public MainWindow()
@@ -53,7 +53,7 @@ public class MainWindow extends javax.swing.JFrame
         model.addColumn("P/C");
         model.addColumn("Amount");
         rowdata = new Object[8];
-        newaccount=false;
+        proceedFromDialog=false;
         
         
         JPanel1.add(JScrollPane1);
@@ -210,16 +210,16 @@ public class MainWindow extends javax.swing.JFrame
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
-		if (newaccount){
+		if (proceedFromDialog){
             // add row to table
             rowdata[0] = param.getAccountNumber();
             rowdata[1] = param.getCustomerName();
             rowdata[2] = param.getCity();
             rowdata[3] = "P";
-            rowdata[4] = "0";
+            rowdata[4] = "0.0";
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
-            newaccount=false;
+            proceedFromDialog=false;
         }
 
        
@@ -238,16 +238,16 @@ public class MainWindow extends javax.swing.JFrame
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 		
-		if (newaccount){
+		if (proceedFromDialog){
             // add row to table
             rowdata[0] = param.getAccountNumber();
             rowdata[1] = param.getCustomerName();
             rowdata[2] = param.getCity();
             rowdata[3] = "C";
-            rowdata[4] = "0";
+            rowdata[4] = "0.0";
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
-            newaccount=false;
+            proceedFromDialog=false;
         }
 
 	}
@@ -264,12 +264,14 @@ public class MainWindow extends javax.swing.JFrame
 		    dep.setBounds(430, 15, 275, 140);
 		    dep.show();
     		
-		    // compute new amount
-            long deposit = Long.parseLong(amountDeposit);
-            String samount = (String)model.getValueAt(selection, 4);
-            long currentamount = Long.parseLong(samount);
-		    long newamount=currentamount+deposit;
-		    model.setValueAt(String.valueOf(newamount),selection, 4);
+		    if (proceedFromDialog){
+			    // compute new amount
+		    	String samount = (String)model.getValueAt(selection, 4);
+		    	double currentamount = Double.parseDouble(samount);
+		    	double newamount=currentamount+amountDeposit;
+			    model.setValueAt(String.valueOf(newamount),selection, 4);
+			    proceedFromDialog=false;
+		    }
 		}
 		
 		System.out.println(FinCo.generateReport());
@@ -287,14 +289,16 @@ public class MainWindow extends javax.swing.JFrame
 		    wd.setBounds(430, 15, 275, 140);
 		    wd.show();
     		
-		    // compute new amount
-            long deposit = Long.parseLong(amountDeposit);
-            String samount = (String)model.getValueAt(selection, 4);
-            long currentamount = Long.parseLong(samount);
-		    long newamount=currentamount-deposit;
-		    model.setValueAt(String.valueOf(newamount),selection, 4);
-		    if (newamount <0){
-		       JOptionPane.showMessageDialog(JButton_Withdraw, " Account "+accnr+" : balance is negative: $"+String.valueOf(newamount)+" !","Warning: negative balance",JOptionPane.WARNING_MESSAGE);
+		    if (proceedFromDialog){
+		    	// compute new amount
+		    	String samount = (String)model.getValueAt(selection, 4);
+		    	double currentamount = Double.parseDouble(samount);
+		    	double newamount=currentamount-amountDeposit;
+		    	model.setValueAt(String.valueOf(newamount),selection, 4);
+		    	if (newamount <0){
+		    		JOptionPane.showMessageDialog(JButton_Withdraw, " Account "+accnr+" : balance is negative: $"+String.valueOf(newamount)+" !","Warning: negative balance",JOptionPane.WARNING_MESSAGE);
+		    	}
+		    	proceedFromDialog=false;
 		    }
 		}
 		
@@ -303,12 +307,13 @@ public class MainWindow extends javax.swing.JFrame
 	
 	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event)
 	{
-		  JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts","Add interest to all accounts",JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts","Add interest to all accounts",JOptionPane.WARNING_MESSAGE);
 	    FinCo.addInterest();
+	    
 	    for(int i=0; i< model.getRowCount(); i++) {
 	    	model.setValueAt(String.valueOf(
-	    			Math.round(FinCo.getCustomers().get(i).accounts().get(0).getBalance())
-	    			), i, 4);
+	    						Math.round(FinCo.getCustomers().get(i).accounts().get(0).getBalance())
+	    									), i, 4);
 	    }
 	} 
 }
