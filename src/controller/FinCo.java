@@ -27,7 +27,7 @@ public class FinCo {
 
 	protected static void createPerson(AccountParameters param) {
 		// Is Customer already exist
-		customer = findCustomer(param.getCustomerName(), param.getCustomerEmail()).get();
+		customer = findCustomer(param.getCustomerName(), param.getCustomerEmail());
 		if (customer == null) {
 			customer = CustomerFactory.getCustomerFactory().createPerson(param.getCustomerName(), param.getbirthDate(),
 					param.getCustomerEmail(), param.getStreetName(), param.getCity(), param.getState(), param.getZip());
@@ -42,7 +42,7 @@ public class FinCo {
 
 	protected static void createCompany(AccountParameters param) {
 		// Is Customer already exist
-		customer = findCustomer(param.getCustomerName(), param.getCustomerEmail()).get();
+		customer = findCustomer(param.getCustomerName(), param.getCustomerEmail());
 		if (customer == null) {
 			customer = CustomerFactory.getCustomerFactory().createCompany(param.getCustomerName(),
 					param.getCustomerEmail(), param.getStreetName(), param.getCity(), param.getState(), param.getZip());
@@ -55,9 +55,10 @@ public class FinCo {
 		customer.addAccount(account);
 	}
 
-	protected static Optional<ICustomer> findCustomer(String customerName, String customerEmail) {
-		return customers.stream().filter(customer -> customer.getName().equals(customerName))
+	protected static ICustomer findCustomer(String customerName, String customerEmail) {
+		Optional<ICustomer> cust =  customers.stream().filter(customer -> customer.getName().equals(customerName))
 				.filter(customer -> customer.getEmail().equals(customerEmail)).findFirst();
+		return (cust.isPresent() ? cust.get() : null);
 	}
 
 	protected static BiPredicate<ICustomer, String> hasAccount = (customer, accountNumber) -> customer.accounts().stream()
@@ -102,6 +103,10 @@ public class FinCo {
 
 		}
 		return report;
+	}
+	
+	public static List<ICustomer> getCustomers(){
+		return customers;
 	}
 
 }

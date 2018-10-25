@@ -304,6 +304,11 @@ public class MainWindow extends javax.swing.JFrame
 	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		  JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts","Add interest to all accounts",JOptionPane.WARNING_MESSAGE);
-	    
+	    FinCo.addInterest();
+	    for(int i=0; i< model.getRowCount(); i++) {
+	    	model.setValueAt(String.valueOf(
+	    			Math.round(FinCo.getCustomers().get(i).accounts().get(0).getBalance())
+	    			), i, 4);
+	    }
 	} 
 }
