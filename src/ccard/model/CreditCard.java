@@ -39,10 +39,12 @@ public abstract class CreditCard extends Account{
 	}
 	
 	public Double getLastMonthBalance(String accountNumber) {
-		
-		
 		return null;
 	}
 	
-
+	@Override
+	public void addInterest() {
+	 this.currentBalance += this.currentBalance * this.getMonthlyInterest();
+		
+	}
 }

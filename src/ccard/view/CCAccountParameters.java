@@ -7,6 +7,7 @@ import view.AccountParameters;
 public class CCAccountParameters extends AccountParameters {
 
 	private LocalDate expiryDate;
+	private String accountType;
 
 	public LocalDate getExpiryDate() {
 		return expiryDate;
@@ -16,6 +17,13 @@ public class CCAccountParameters extends AccountParameters {
 		this.expiryDate = expiryDate;
 	}
 	
-	
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+
 
 }

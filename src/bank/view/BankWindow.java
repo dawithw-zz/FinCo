@@ -7,7 +7,6 @@ import view.MainWindow;
 
 public class BankWindow extends MainWindow{
 	
-	public String accountType;
 	BankAccountParameters param = new BankAccountParameters();
 	private BankWindow myframe;
 	
@@ -63,9 +62,9 @@ public class BankWindow extends MainWindow{
 		 show it 
 		*/
 		
-		BankAddCompanyAccountDialog pac = new BankAddCompanyAccountDialog(myframe);
-		pac.setBounds(450, 20, 300, 330);
-		pac.show();
+		BankAddCompanyAccountDialog cac = new BankAddCompanyAccountDialog(myframe);
+		cac.setBounds(450, 20, 300, 330);
+		cac.show();
 		
 		if (proceedFromDialog){
             // add row to table
@@ -80,18 +79,5 @@ public class BankWindow extends MainWindow{
             proceedFromDialog=false;
         }
 
-	}
-	
-	@Override
-	public void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event)
-	{
-		JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts","Add interest to all accounts",JOptionPane.WARNING_MESSAGE);
-	    FinCo.addInterest();
-	    
-	    for(int i=0; i< model.getRowCount(); i++) {
-	    	model.setValueAt(String.valueOf(
-	    						Math.round(FinCo.getCustomers().get(i).accounts().get(0).getBalance())
-	    									), i, 5);
-	    }
 	}
 }

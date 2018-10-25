@@ -17,7 +17,7 @@ public class MainWindow extends javax.swing.JFrame
     /****
      * init variables in the object
      ****/
-    private static MainWindow myframe;
+    protected static MainWindow myframe;
     public double amountDeposit;
     public boolean proceedFromDialog;
     AccountParameters param = new AccountParameters();
@@ -117,31 +117,31 @@ public class MainWindow extends javax.swing.JFrame
 		}
 	}
 
-	class SymWindow extends java.awt.event.WindowAdapter
+	public class SymWindow extends java.awt.event.WindowAdapter
 	{
 		public void windowClosing(java.awt.event.WindowEvent event)
 		{
 			Object object = event.getSource();
 			if (object == MainWindow.this)
-				BankFrm_windowClosing(event);
+				MainWindow_windowClosing(event);
 		}
 	}
 
-	public void BankFrm_windowClosing(java.awt.event.WindowEvent event)
+	public void MainWindow_windowClosing(java.awt.event.WindowEvent event)
 	{
 		// to do: code goes here.
 			 
-		BankFrm_windowClosing_Interaction1(event);
+		MainWindow_windowClosing_Interaction1(event);
 	}
 
-	public void BankFrm_windowClosing_Interaction1(java.awt.event.WindowEvent event) {
+	public void MainWindow_windowClosing_Interaction1(java.awt.event.WindowEvent event) {
 		try {
 			this.exitApplication();
 		} catch (Exception e) {
 		}
 	}
 
-	class SymAction implements java.awt.event.ActionListener
+	public class SymAction implements java.awt.event.ActionListener
 	{
 		public void actionPerformed(java.awt.event.ActionEvent event)
 		{
