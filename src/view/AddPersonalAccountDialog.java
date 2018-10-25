@@ -10,7 +10,7 @@ import controller.FinCo;
 
 public class AddPersonalAccountDialog extends javax.swing.JDialog
 {
-    private MainWindow parentframe;
+    protected MainWindow parentframe;
     
 	public AddPersonalAccountDialog(MainWindow parent)
 	{
@@ -91,23 +91,22 @@ public class AddPersonalAccountDialog extends javax.swing.JDialog
 
 
 	//{{DECLARE_CONTROLS
-	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel3 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel4 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel5 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel6 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel7 = new javax.swing.JLabel();
-	javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_CT = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_ST = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_STR = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_ZIP = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_EM = new javax.swing.JTextField();
-	javax.swing.JButton JButton_OK = new javax.swing.JButton();
-	javax.swing.JButton JButton_Cancel = new javax.swing.JButton();
-	javax.swing.JTextField JTextField_ACNR = new javax.swing.JTextField();
-	javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel3 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel4 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel5 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel6 = new javax.swing.JLabel();
+	public javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_CT = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_ST = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_STR = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_ZIP = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_EM = new javax.swing.JTextField();
+	public javax.swing.JButton JButton_OK = new javax.swing.JButton();
+	public javax.swing.JButton JButton_Cancel = new javax.swing.JButton();
+	public javax.swing.JTextField JTextField_ACNR = new javax.swing.JTextField();
+	public javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
 	//}}
 
 
@@ -132,7 +131,7 @@ public class AddPersonalAccountDialog extends javax.swing.JDialog
 		parentframe.param.setZip(JTextField_ZIP.getText());
 		parentframe.param.setState(JTextField_ST.getText());
 		parentframe.param.setCustomerEmail(JTextField_EM.getText());
-		parentframe.newaccount=true;
+		parentframe.proceedFromDialog=true;
 		FinCo.createPersonalAccount(parentframe.param);
 		dispose();
 	}

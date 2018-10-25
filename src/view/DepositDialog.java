@@ -84,9 +84,16 @@ public class DepositDialog extends javax.swing.JDialog
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-        parentframe.amountDeposit=JTextField_Deposit.getText();
-        FinCo.deposit(accnr, Double.parseDouble(parentframe.amountDeposit));
-        dispose();
+		try {
+			parentframe.amountDeposit=Double.parseDouble(JTextField_Deposit.getText());
+			if (parentframe.amountDeposit < 0)
+				throw new NumberFormatException();
+			FinCo.deposit(accnr,parentframe.amountDeposit);
+	        parentframe.proceedFromDialog=true;
+	        dispose();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, "Please enter a valid amount","Error: illegal value",JOptionPane.WARNING_MESSAGE);
+		}
 	}
 
 	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)

@@ -3,15 +3,17 @@ package controller;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.*;
+
+import javax.swing.UIManager;
+
+import bank.view.BankWindow;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import model.Account;
-import model.Customer;
 import model.IAccount;
 import model.ICustomer;
-import model.ITransaction;
 import model.Transaction;
 import view.AccountParameters;
 
@@ -19,7 +21,34 @@ public class FinCo {
 
 	private static List<ICustomer> customers = new ArrayList<>();
 	protected static ICustomer customer;
-
+	
+	/*****************************************************
+	 * The entry point for this application.
+	 * Sets the Look and Feel to the System Look and Feel.
+	 * Creates a new MainWindow and makes it visible.
+	 *****************************************************/
+	public static void main(String args[])
+	{
+		try {
+		    // Add the following code if you want the Look and Feel
+		    // to be set to the Look and Feel of the native system.
+		    
+		    try {
+		        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		    } 
+		    catch (Exception e) { 
+		    }
+		    
+			// make an instance of application's frame visible.
+		    (new view.MainWindow()).setVisible(true);
+		} 
+		catch (Throwable t) {
+			t.printStackTrace();
+			//Ensure the application exits with an error condition.
+			System.exit(1);
+		}
+	}
+	
 	public static void createPersonalAccount(AccountParameters param) {
 		createPerson(param);
 		createCustomerAccount(AccountFactory.getAccountFactory(), param.getAccountNumber());
@@ -64,25 +93,29 @@ public class FinCo {
 	protected static BiPredicate<ICustomer, String> hasAccount = (customer, accountNumber) -> customer.accounts().stream()
 			.anyMatch(account -> account.accountNumber().equals(accountNumber));
 
-	protected static Function<String, ICustomer> getOwner = (accountNumber) -> customers.stream()
-			.filter(customer -> hasAccount.test(customer, accountNumber)).findFirst().get();
-
+	public static ICustomer getOwner(String accountNumber) {
+		return customers.stream()
+				.filter(customer -> hasAccount.test(customer, accountNumber)).findFirst().get();
+	}
+	
 	public static void deposit(String accountNumber, double deposit) {
-		customer = getOwner.apply(accountNumber);
-		for (IAccount a : customer.accounts()) {
-			if (a.accountNumber().equals(accountNumber)) {
-				a.addTransaction(new Transaction("Deposit", deposit, Date.valueOf(LocalDate.now())));
-			}
-		}
+		customer = getOwner(accountNumber);
+		IAccount account = getAccount(accountNumber, customer);
+		account.addTransaction(new Transaction("Deposit", deposit, Date.valueOf(LocalDate.now())));
 	}
 
 	public static void withdraw(String accountNumber, double deposit) {
-		customer = getOwner.apply(accountNumber);
+		customer = getOwner(accountNumber);
+		IAccount account = getAccount(accountNumber, customer);
+		account.addTransaction(new Transaction("Withdraw", -deposit, Date.valueOf(LocalDate.now())));
+	}
+	
+	public static IAccount getAccount(String accountNumber, ICustomer customer) {
 		for (IAccount a : customer.accounts()) {
-			if (a.accountNumber().equals(accountNumber)) {
-				a.addTransaction(new Transaction("Withdraw", -deposit, Date.valueOf(LocalDate.now())));
-			}
+			if (a.accountNumber().equals(accountNumber))
+				return a;
 		}
+		return null;
 	}
 
 	public static void addInterest() {

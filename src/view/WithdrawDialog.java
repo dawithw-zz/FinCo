@@ -57,12 +57,8 @@ public class WithdrawDialog extends javax.swing.JDialog
 		SymAction lSymAction = new SymAction();
 		JButton_OK.addActionListener(lSymAction);
 		JButton_Calcel.addActionListener(lSymAction);
-		
 	}
 
-
-
-	
 	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
 	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
 	javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
@@ -86,9 +82,16 @@ public class WithdrawDialog extends javax.swing.JDialog
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-        parentframe.amountDeposit=JTextField_AMT.getText();
-        FinCo.withdraw(accnr, Double.parseDouble(parentframe.amountDeposit));
-		dispose();
+		try {
+			parentframe.amountDeposit= Double.parseDouble(JTextField_AMT.getText());
+			if (parentframe.amountDeposit < 0)
+				throw new NumberFormatException();
+			FinCo.withdraw(accnr, parentframe.amountDeposit);
+	        parentframe.proceedFromDialog=true;
+			dispose();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, "Please enter a valid amount","Error: Illegal value",JOptionPane.WARNING_MESSAGE);
+		}
 	}
 
 	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)
