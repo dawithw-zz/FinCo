@@ -61,25 +61,29 @@ public class FinCo {
 	protected static BiPredicate<ICustomer, String> hasAccount = (customer, accountNumber) -> customer.accounts().stream()
 			.anyMatch(account -> account.accountNumber().equals(accountNumber));
 
-	protected static Function<String, ICustomer> getOwner = (accountNumber) -> customers.stream()
-			.filter(customer -> hasAccount.test(customer, accountNumber)).findFirst().get();
-
+	public static ICustomer getOwner(String accountNumber) {
+		return customers.stream()
+				.filter(customer -> hasAccount.test(customer, accountNumber)).findFirst().get();
+	}
+	
 	public static void deposit(String accountNumber, double deposit) {
-		customer = getOwner.apply(accountNumber);
-		for (IAccount a : customer.accounts()) {
-			if (a.accountNumber().equals(accountNumber)) {
-				a.addTransaction(new Transaction("Deposit", deposit, Date.valueOf(LocalDate.now())));
-			}
-		}
+		customer = getOwner(accountNumber);
+		IAccount account = getAccount(accountNumber, customer);
+		account.addTransaction(new Transaction("Deposit", deposit, Date.valueOf(LocalDate.now())));
 	}
 
 	public static void withdraw(String accountNumber, double deposit) {
-		customer = getOwner.apply(accountNumber);
+		customer = getOwner(accountNumber);
+		IAccount account = getAccount(accountNumber, customer);
+		account.addTransaction(new Transaction("Withdraw", -deposit, Date.valueOf(LocalDate.now())));
+	}
+	
+	public static IAccount getAccount(String accountNumber, ICustomer customer) {
 		for (IAccount a : customer.accounts()) {
-			if (a.accountNumber().equals(accountNumber)) {
-				a.addTransaction(new Transaction("Withdraw", -deposit, Date.valueOf(LocalDate.now())));
-			}
+			if (a.accountNumber().equals(accountNumber))
+				return a;
 		}
+		return null;
 	}
 
 	public static void addInterest() {
