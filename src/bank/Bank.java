@@ -12,25 +12,21 @@ public class Bank extends FinCo{
 	public static void createPersonalCheckingAccount(AccountParameters param) {
 		//createCustomerAccount(param, PersonFactory.getInstance(), CheckingAccountFactory.getInstance());
 		createPerson(param);
-		customer = getCustomer();
 		createCheckingAccount(BankAccountFactory.getBankAccountFactory(),param.getAccountNumber());
 	}
 	
 	public static void createPersonalSavingAccount(AccountParameters param) {
 		createPerson(param);
-		customer = getCustomer();
 		createSavingAccount(BankAccountFactory.getBankAccountFactory(),param.getAccountNumber());
 	}
 	
 	public static void createCompanyCheckingAccount(AccountParameters param) {
 		createCompany(param);
-		customer = getCustomer();
 		createCheckingAccount(BankAccountFactory.getBankAccountFactory(),param.getAccountNumber());	
 		}
 	
 	public static void createCompanySavingAccount(AccountParameters param) {
 		createCompany(param);
-		customer = getCustomer();
 		createSavingAccount(BankAccountFactory.getBankAccountFactory(),param.getAccountNumber());	
 	}
 	
