@@ -1,9 +1,9 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public interface ITransaction {
 	public String description();
 	public double amount();
-	public Date date();
+	public LocalDate date();
 }

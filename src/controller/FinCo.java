@@ -6,9 +6,7 @@ import java.util.function.*;
 
 import javax.swing.UIManager;
 
-import bank.view.BankWindow;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -101,13 +99,13 @@ public class FinCo {
 	public static void deposit(String accountNumber, double deposit) {
 		customer = getOwner(accountNumber);
 		IAccount account = getAccount(accountNumber, customer);
-		account.addTransaction(new Transaction("Deposit", deposit, Date.valueOf(LocalDate.now())));
+		account.addTransaction(new Transaction("Deposit", deposit, LocalDate.now()));
 	}
 
 	public static void withdraw(String accountNumber, double deposit) {
 		customer = getOwner(accountNumber);
 		IAccount account = getAccount(accountNumber, customer);
-		account.addTransaction(new Transaction("Withdraw", -deposit, Date.valueOf(LocalDate.now())));
+		account.addTransaction(new Transaction("Withdraw", -deposit, LocalDate.now()));
 	}
 	
 	public static IAccount getAccount(String accountNumber, ICustomer customer) {
@@ -130,9 +128,9 @@ public class FinCo {
 		String report = "";
 		for (ICustomer c : customers) {
 			report = "Name = " + c.getName();
-			report += "Address = " + c.getAddress();
-			report += "Account = " + c.accounts();
-			report += "Total Balance = " + c.accounts().stream().mapToDouble(x -> x.getBalance()).sum();
+			report += "\nAddress = " + c.getAddress();
+			report += "\nAccount = " + c.accounts();
+			report += "\nTotal Balance = " + c.accounts().stream().mapToDouble(x -> x.getBalance()).sum();
 
 		}
 		return report;

@@ -1,18 +1,18 @@
 package ccard.view;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import view.AccountParameters;
 
 public class CCAccountParameters extends AccountParameters {
 
-	private Date expiryDate;
+	private LocalDate expiryDate;
 
-	public Date getExpiryDate() {
+	public LocalDate getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(LocalDate expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 	

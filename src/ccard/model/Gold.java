@@ -1,12 +1,13 @@
 package ccard.model;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 import model.ICustomer;
 
 public class Gold extends CreditCard {
 
-	public Gold(ICustomer owner, String accountNumber, Date expiryDate) {
+	public Gold(ICustomer owner, String accountNumber, LocalDate expiryDate) {
 		super(owner, accountNumber);
 		super.setExpiryDate(expiryDate);
 		super.setMonthlyInterest(0.06);

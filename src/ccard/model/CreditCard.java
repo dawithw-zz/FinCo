@@ -1,13 +1,13 @@
 package ccard.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import model.Account;
 import model.ICustomer;
 
 public abstract class CreditCard extends Account{
 
-	protected Date expiryDate;
+	protected LocalDate expiryDate;
 	protected Double monthlyInterest;
 	protected Double minPayment;
 	
@@ -15,10 +15,10 @@ public abstract class CreditCard extends Account{
 		super(owner, accountNumber);
 	}
 	
-	public Date getExpiryDate() {
+	public LocalDate getExpiryDate() {
 		return expiryDate;
 	}
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(LocalDate expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 
