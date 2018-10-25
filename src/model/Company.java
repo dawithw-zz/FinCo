@@ -31,5 +31,4 @@ public class Company extends Customer implements ICompany {
 	public void setNoOfEmployees(int noOfEmployees) {
 		this.noOfEmployees = noOfEmployees;
 	}
-
 }

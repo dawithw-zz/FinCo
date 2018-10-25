@@ -26,6 +26,5 @@ public class Transaction implements ITransaction {
 	@Override
 	public LocalDate date() {
 		return date;
-	}
-	
+	}	
 }

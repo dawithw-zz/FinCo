@@ -10,5 +10,4 @@ public class Account extends AbstractAccount {
 		this.accountNumber = accountNumber;
 		super.interest = 0.01;
 	}
-
 }

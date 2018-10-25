@@ -63,7 +63,5 @@ public abstract class AbstractAccount implements IAccount {
 	public void addInterest() {
 	 this.currentBalance += this.currentBalance * this.getInterest();
 		
-	}
-
-	
+	}	
 }
