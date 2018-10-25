@@ -17,20 +17,19 @@ public class MainWindow extends javax.swing.JFrame
     /****
      * init variables in the object
      ****/
-    public MainWindow myframe;
+    private static MainWindow myframe;
     public double amountDeposit;
     public boolean proceedFromDialog;
-    public AccountParameters param = new AccountParameters();
+    AccountParameters param = new AccountParameters();
     
-    private DefaultTableModel model;
-    private JTable JTable1;
-    private JScrollPane JScrollPane1;
-    private Object rowdata[];
+    protected DefaultTableModel model;
+    protected JTable JTable1;
+    protected JScrollPane JScrollPane1;
+    protected Object rowdata[];
     
 	public MainWindow()
 	{
 		myframe = this;
-
 		setTitle("FinCo");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0,0));
@@ -99,44 +98,16 @@ public class MainWindow extends javax.swing.JFrame
 		
 	}
 
-	
-	/*****************************************************
-	 * The entry point for this application.
-	 * Sets the Look and Feel to the System Look and Feel.
-	 * Creates a new JFrame1 and makes it visible.
-	 *****************************************************/
-	static public void main(String args[])
-	{
-		try {
-		    // Add the following code if you want the Look and Feel
-		    // to be set to the Look and Feel of the native system.
-		    
-		    try {
-		        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		    } 
-		    catch (Exception e) { 
-		    }
-		    
-			//Create a new instance of our application's frame, and make it visible.
-			(new MainWindow()).setVisible(true);
-		} 
-		catch (Throwable t) {
-			t.printStackTrace();
-			//Ensure the application exits with an error condition.
-			System.exit(1);
-		}
-	}
 
+	public javax.swing.JPanel JPanel1 = new javax.swing.JPanel();
+	public javax.swing.JButton JButton_PerAC = new javax.swing.JButton();
+	public javax.swing.JButton JButton_CompAC = new javax.swing.JButton();
+	public javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
+	public javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
+	public javax.swing.JButton JButton_Addinterest= new javax.swing.JButton();
+	public javax.swing.JButton JButton_Exit = new javax.swing.JButton();
 
-	javax.swing.JPanel JPanel1 = new javax.swing.JPanel();
-	javax.swing.JButton JButton_PerAC = new javax.swing.JButton();
-	javax.swing.JButton JButton_CompAC = new javax.swing.JButton();
-	javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
-	javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
-	javax.swing.JButton JButton_Addinterest= new javax.swing.JButton();
-	javax.swing.JButton JButton_Exit = new javax.swing.JButton();
-
-	void exitApplication()
+	public void exitApplication()
 	{
 		try {
 		    	this.setVisible(false);    // hide the Frame
@@ -156,14 +127,14 @@ public class MainWindow extends javax.swing.JFrame
 		}
 	}
 
-	void BankFrm_windowClosing(java.awt.event.WindowEvent event)
+	public void BankFrm_windowClosing(java.awt.event.WindowEvent event)
 	{
 		// to do: code goes here.
 			 
 		BankFrm_windowClosing_Interaction1(event);
 	}
 
-	void BankFrm_windowClosing_Interaction1(java.awt.event.WindowEvent event) {
+	public void BankFrm_windowClosing_Interaction1(java.awt.event.WindowEvent event) {
 		try {
 			this.exitApplication();
 		} catch (Exception e) {
@@ -193,12 +164,12 @@ public class MainWindow extends javax.swing.JFrame
     
     //When the Exit button is pressed this code gets executed
     //this will exit from the system
-    void JButtonExit_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonExit_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		System.exit(0);
 	}
 
-	void JButtonPerAC_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonPerAC_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		/*
 		 JDialog_AddPAcc type object is for adding personal information
@@ -226,7 +197,7 @@ public class MainWindow extends javax.swing.JFrame
         
     }
 
-	void JButtonCompAC_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonCompAC_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		/*
 		 construct a JDialog_AddCompAcc type object 
@@ -252,7 +223,7 @@ public class MainWindow extends javax.swing.JFrame
 
 	}
 
-	void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event)
 	{
 	    // get selected name
         int selection = JTable1.getSelectionModel().getMinSelectionIndex();
@@ -277,7 +248,7 @@ public class MainWindow extends javax.swing.JFrame
 		System.out.println(FinCo.generateReport());
 	}
 
-	void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event)
 	{
 	    // get selected name
         int selection = JTable1.getSelectionModel().getMinSelectionIndex();
@@ -305,7 +276,7 @@ public class MainWindow extends javax.swing.JFrame
 		
 	}
 	
-	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts","Add interest to all accounts",JOptionPane.WARNING_MESSAGE);
 	    FinCo.addInterest();
@@ -315,5 +286,5 @@ public class MainWindow extends javax.swing.JFrame
 	    						Math.round(FinCo.getCustomers().get(i).accounts().get(0).getBalance())
 	    									), i, 4);
 	    }
-	} 
+	}
 }

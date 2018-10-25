@@ -3,6 +3,11 @@ package controller;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.*;
+
+import javax.swing.UIManager;
+
+import bank.view.BankWindow;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,7 +21,34 @@ public class FinCo {
 
 	private static List<ICustomer> customers = new ArrayList<>();
 	protected static ICustomer customer;
-
+	
+	/*****************************************************
+	 * The entry point for this application.
+	 * Sets the Look and Feel to the System Look and Feel.
+	 * Creates a new MainWindow and makes it visible.
+	 *****************************************************/
+	public static void main(String args[])
+	{
+		try {
+		    // Add the following code if you want the Look and Feel
+		    // to be set to the Look and Feel of the native system.
+		    
+		    try {
+		        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		    } 
+		    catch (Exception e) { 
+		    }
+		    
+			// make an instance of application's frame visible.
+		    (new view.MainWindow()).setVisible(true);
+		} 
+		catch (Throwable t) {
+			t.printStackTrace();
+			//Ensure the application exits with an error condition.
+			System.exit(1);
+		}
+	}
+	
 	public static void createPersonalAccount(AccountParameters param) {
 		createPerson(param);
 		createCustomerAccount(AccountFactory.getAccountFactory(), param.getAccountNumber());

@@ -1,7 +1,6 @@
 package bank.model;
 
 import model.Account;
-import model.Customer;
 import model.ICustomer;
 
 public class SavingAccount extends Account {

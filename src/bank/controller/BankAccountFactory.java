@@ -1,7 +1,8 @@
-package bank.model;
+package bank.controller;
 
+import bank.model.CheckingAccount;
+import bank.model.SavingAccount;
 import controller.AccountFactory;
-import model.Customer;
 import model.IAccount;
 import model.ICustomer;
 

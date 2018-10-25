@@ -9,12 +9,11 @@ public class AccountParameters {
 	private String city;
 	private String state;
 	private String zip;
-	private String accountType;
 	private String customerEmail;
 	private Date birthDate;
 	
 	public AccountParameters() {
-		accountNumber = customerName = streetName = city = state = zip = accountType = customerEmail = "";
+		accountNumber = customerName = streetName = city = state = zip = customerEmail = "";
 	}
 	
 	public String getAccountNumber() {
@@ -53,23 +52,15 @@ public class AccountParameters {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	public String getAccountType() {
-		return accountType;
-	}
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
-	}
 	public Date getbirthDate() {
 		return birthDate;
 	}
 	public void setbirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-
 	public String getCustomerEmail() {
 		return customerEmail;
 	}
-
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
 	}	

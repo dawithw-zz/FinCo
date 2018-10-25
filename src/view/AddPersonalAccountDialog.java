@@ -10,7 +10,7 @@ import controller.FinCo;
 
 public class AddPersonalAccountDialog extends javax.swing.JDialog
 {
-    private MainWindow parentframe;
+    protected MainWindow parentframe;
     
 	public AddPersonalAccountDialog(MainWindow parent)
 	{
@@ -97,7 +97,6 @@ public class AddPersonalAccountDialog extends javax.swing.JDialog
 	public javax.swing.JLabel JLabel4 = new javax.swing.JLabel();
 	public javax.swing.JLabel JLabel5 = new javax.swing.JLabel();
 	public javax.swing.JLabel JLabel6 = new javax.swing.JLabel();
-	public javax.swing.JLabel JLabel7 = new javax.swing.JLabel();
 	public javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
 	public javax.swing.JTextField JTextField_CT = new javax.swing.JTextField();
 	public javax.swing.JTextField JTextField_ST = new javax.swing.JTextField();
