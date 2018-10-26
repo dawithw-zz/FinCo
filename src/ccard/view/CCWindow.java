@@ -142,7 +142,7 @@ public class CCWindow extends MainWindow{
             String accnr = (String)model.getValueAt(selection, 1);
 
 		    //Show the dialog for adding withdraw amount for the current mane
-		    WithdrawDialog wd = new WithdrawDialog(myframe,accnr);
+		    CCWithdrawDialog wd = new CCWithdrawDialog(myframe,accnr);
 		    wd.setBounds(430, 15, 275, 140);
 		    wd.show();
     		

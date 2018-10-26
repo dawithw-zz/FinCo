@@ -9,8 +9,8 @@ import controller.FinCo;
 public class WithdrawDialog extends javax.swing.JDialog
 {
    
-    private MainWindow parentframe;
-    private String accnr;
+    protected MainWindow parentframe;
+    protected String accnr;
 
 	public WithdrawDialog(MainWindow parent, String aaccnr)
 	{
@@ -59,12 +59,12 @@ public class WithdrawDialog extends javax.swing.JDialog
 		JButton_Calcel.addActionListener(lSymAction);
 	}
 
-	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
-	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
-	javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
-	javax.swing.JTextField JTextField_AMT = new javax.swing.JTextField();
-	javax.swing.JButton JButton_OK = new javax.swing.JButton();
-	javax.swing.JButton JButton_Calcel = new javax.swing.JButton();
+	public javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
+	public javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
+	public javax.swing.JTextField JTextField_NAME = new javax.swing.JTextField();
+	public javax.swing.JTextField JTextField_AMT = new javax.swing.JTextField();
+	public javax.swing.JButton JButton_OK = new javax.swing.JButton();
+	public javax.swing.JButton JButton_Calcel = new javax.swing.JButton();
 
 
 
@@ -80,7 +80,7 @@ public class WithdrawDialog extends javax.swing.JDialog
 		}
 	}
 
-	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		try {
 			parentframe.amountDeposit= Double.parseDouble(JTextField_AMT.getText());
@@ -94,7 +94,7 @@ public class WithdrawDialog extends javax.swing.JDialog
 		}
 	}
 
-	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		dispose();
 	}
