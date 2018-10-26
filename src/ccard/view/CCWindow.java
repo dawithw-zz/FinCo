@@ -96,7 +96,6 @@ public class CCWindow extends MainWindow{
 		ccac.show();
 
 		if (proceedFromDialog){
-			System.out.println("here");
             // add row to table
             rowdata[0] = param.getCustomerName();
             rowdata[1] = param.getAccountNumber();
@@ -133,8 +132,6 @@ public class CCWindow extends MainWindow{
 			    proceedFromDialog=false;
 		    }
 		}
-		
-		System.out.println(FinCo.generateReport());
 	}
 	
 	public void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event)

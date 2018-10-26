@@ -107,15 +107,15 @@ public class CCard extends FinCo {
 		String report = "";
 		for (ICustomer c : getCustomers()) {
 			report = "Name = " + c.getName();
-			report += "\nAddress = " + c.getAddress();
+			report += "\r\n" + c.getAddress();
 			for (IAccount a : c.accounts()) {
-				report += "\nCC Number = " + a.accountNumber();
-				report += "\nCC Type = " + a.getClass().getSimpleName();
-				report += "\nPrevious blance = " + getLastMonthBalance(a);
-				report += "\nTotal credits = " + getTotalCredits(a);
-				report += "\nTotal Charges = " + getTotalCharges(a);
-				report += "\nNew Balance = " + getNewBalance(a);
-				report += "\nTotal Amount Due = " + getTotalDue(a);
+				report += "\r\nCC Number = " + a.accountNumber();
+				report += "\r\nCC Type = " + a.getClass().getSimpleName();
+				report += "\r\nPrevious blance = " + getLastMonthBalance(a);
+				report += "\r\nTotal credits = " + getTotalCredits(a);
+				report += "\r\nTotal Charges = " + getTotalCharges(a);
+				report += "\r\nNew Balance = " + getNewBalance(a);
+				report += "\r\nTotal Amount Due = " + getTotalDue(a);
 			}
 		}
 		return report;

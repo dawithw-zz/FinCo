@@ -56,7 +56,7 @@ public abstract class AbstractAccount implements IAccount {
 
 	@Override
 	public String toString() {
-		return "Account = accountNumber: " + accountNumber + ", currentBalance: " + currentBalance;
+		return "accountNumber: " + accountNumber + ", currentBalance: " + currentBalance;
 	}
 
 	@Override
