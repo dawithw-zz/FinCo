@@ -30,7 +30,7 @@ public class BankAddPersonalAccountDialog extends AddPersonalAccountDialog{
 		JLabel7.setBounds(12,204,96,24);
 		
 		JLabel6.setBounds(12,228,48,24);
-		JTextField_EM.setBounds(120,240,156,20);
+		JTextField_EM.setBounds(84,228,156,20);
 		getContentPane().add(JTextField_BD);
 		JTextField_BD.setBounds(84,204,156,20);
 		
@@ -55,8 +55,9 @@ public class BankAddPersonalAccountDialog extends AddPersonalAccountDialog{
 	{
 		//When Checking radio is clicked make this radio on 
 		//and make Saving account radio off
-		JRadioButton_Sav.setSelected(false);
 		JRadioButton_Chk.setSelected(true);
+		JRadioButton_Sav.setSelected(false);
+		
 		
 	}
 
@@ -69,7 +70,8 @@ public class BankAddPersonalAccountDialog extends AddPersonalAccountDialog{
 	 
 	}
 	
-	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
+	@Override
+	public void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		parentframe.param.setAccountNumber(JTextField_ACNR.getText());
 		parentframe.param.setCustomerName(JTextField_NAME.getText());
@@ -80,9 +82,11 @@ public class BankAddPersonalAccountDialog extends AddPersonalAccountDialog{
 		parentframe.param.setCustomerEmail(JTextField_EM.getText());
 		parentframe.param.setBirthdate(JTextField_BD.getText());
 		
+		System.out.println("asda" + parentframe.param.getCustomerName());
 		if (JRadioButton_Chk.isSelected()) {
     	   parentframe.param.setAccountType("Ch");
            Bank.createPersonalCheckingAccount(parentframe.param);
+           System.out.println("here");
 		}
 		else {
     	   parentframe.param.setAccountType("S");

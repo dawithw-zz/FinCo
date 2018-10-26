@@ -70,7 +70,8 @@ public class BankAddCompanyAccountDialog extends AddCompanyAccountDialog{
 	 
 	}
 
-	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
+	@Override
+	public void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		parentframe.param.setAccountNumber(JTextField_ACNR.getText());
 		parentframe.param.setCustomerName(JTextField_NAME.getText());

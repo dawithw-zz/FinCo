@@ -122,7 +122,7 @@ public class AddPersonalAccountDialog extends javax.swing.JDialog
 		}
 	}
 
-	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		parentframe.param.setAccountNumber(JTextField_ACNR.getText());
 		parentframe.param.setCustomerName(JTextField_NAME.getText());
@@ -136,7 +136,7 @@ public class AddPersonalAccountDialog extends javax.swing.JDialog
 		dispose();
 	}
 
-	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)
+	public void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)
 	{
     //make this frame invisible if Cancel button is clicked
         dispose();

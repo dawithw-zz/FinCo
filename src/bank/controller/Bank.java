@@ -9,9 +9,7 @@ import model.ICustomer;
 import view.*;
 
 public class Bank extends FinCo{
-	
-	private static ICustomer customer;
-	
+
 	/*****************************************************
 	 * The entry point for this application.
 	 * Sets the Look and Feel to the System Look and Feel.
@@ -43,6 +41,11 @@ public class Bank extends FinCo{
 		//createCustomerAccount(param, PersonFactory.getInstance(), CheckingAccountFactory.getInstance());
 		createPerson(param);
 		createCheckingAccount(BankAccountFactory.getBankAccountFactory(),param.getAccountNumber());
+		
+		System.out.println("no of customers:" + getCustomers().size());
+		for(model.ICustomer c : getCustomers()) {
+			System.out.println("name = " + c.getName());
+		}
 	}
 	
 	public static void createPersonalSavingAccount(AccountParameters param) {

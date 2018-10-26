@@ -42,7 +42,7 @@ public class BankWindow extends MainWindow{
             rowdata[1] = param.getCustomerName();
             rowdata[2] = param.getCity();
             rowdata[3] = "P";
-            rowdata[4] = "IMPLEMENT";
+            rowdata[4] = param.getAccountType();
             rowdata[5] = "0.0";
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
@@ -72,7 +72,7 @@ public class BankWindow extends MainWindow{
             rowdata[1] = param.getCustomerName();
             rowdata[2] = param.getCity();
             rowdata[3] = "C";
-            rowdata[4] = "IMPLEMENT"; 
+            rowdata[4] = param.getAccountType(); 
             rowdata[5] = "0.0";
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
