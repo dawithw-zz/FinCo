@@ -244,8 +244,6 @@ public class MainWindow extends javax.swing.JFrame
 			    proceedFromDialog=false;
 		    }
 		}
-		
-		System.out.println(FinCo.generateReport());
 	}
 
 	public void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event)
