@@ -237,10 +237,10 @@ public class MainWindow extends javax.swing.JFrame
     		
 		    if (proceedFromDialog){
 			    // compute new amount
-		    	String samount = (String)model.getValueAt(selection, 4);
+		    	String samount = (String)model.getValueAt(selection, 5);
 		    	double currentamount = Double.parseDouble(samount);
 		    	double newamount=currentamount+amountDeposit;
-			    model.setValueAt(String.valueOf(newamount),selection, 4);
+			    model.setValueAt(String.valueOf(newamount),selection, 5);
 			    proceedFromDialog=false;
 		    }
 		}
@@ -260,10 +260,10 @@ public class MainWindow extends javax.swing.JFrame
     		
 		    if (proceedFromDialog){
 		    	// compute new amount
-		    	String samount = (String)model.getValueAt(selection, 4);
+		    	String samount = (String)model.getValueAt(selection, 5);
 		    	double currentamount = Double.parseDouble(samount);
 		    	double newamount=currentamount-amountDeposit;
-		    	model.setValueAt(String.valueOf(newamount),selection, 4);
+		    	model.setValueAt(String.valueOf(newamount),selection, 5);
 		    	if (newamount <0){
 		    		JOptionPane.showMessageDialog(JButton_Withdraw, " Account "+accnr+" : balance is negative: $"+String.valueOf(newamount)+" !","Warning: negative balance",JOptionPane.WARNING_MESSAGE);
 		    	}
@@ -282,7 +282,7 @@ public class MainWindow extends javax.swing.JFrame
 	    for(int i=0; i< model.getRowCount(); i++) {
 	    	model.setValueAt(String.valueOf(
 	    						Math.round(FinCo.getCustomers().get(i).accounts().get(0).getBalance())
-	    									), i, 4);
+	    									), i, 5);
 	    }
 	}
 }
