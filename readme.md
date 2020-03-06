@@ -1,8 +1,10 @@
-Group Members:
+**Group Members:**
+
 •	Ali Asad
+
 •	Dawit Woldegiorgis
 
-Overview 
+# Overview 
 
 Our finance framework project (FinCo) is using MVC pattern to keep separation between data layer, UI layer and business logic layer. To implement customer, we used Party pattern so that it can be easily extended for multiple type of customers in applications. Customer is of type person and company in our framework and they will be used as hotspots.
 
